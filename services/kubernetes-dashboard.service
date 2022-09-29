@@ -4,7 +4,7 @@ Requires= snap.microk8s.daemon-containerd.service
 
 [Service]
 Type=simple
-ExecStart=microk8s dashboard-proxy
+ExecStart=/snap/bin/microk8s dashboard-proxy
 Restart=always
 
 [Install]
