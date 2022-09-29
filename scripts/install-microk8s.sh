@@ -17,7 +17,8 @@ if [ ! -f ~/.kube/config ]; then
 fi
 
 # Install addons
-microk8s enable dns dashboard ingress hostpath-storage observability
+microk8s enable dns dashboard
+microk8s enable ingress hostpath-storage observability
 
 SERVICE_FILENAME="kubernetes-dashboard.service"
 if [ ! -f /etc/systemd/system/"$SERVICE_FILENAME" ]; then
