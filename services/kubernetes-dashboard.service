@@ -1,0 +1,11 @@
+[Unit]
+Description=Kubernetes dashboard proxy
+Requires= snap.microk8s.daemon-containerd.service
+
+[Service]
+Type=simple
+ExecStart=microk8s dashboard-proxy
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
