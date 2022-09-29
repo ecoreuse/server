@@ -4,21 +4,21 @@ set -euC
 set -o pipefail
 set -x
 
-SCRIPTDIR=$(dirname "$0")
+SCRIPTS_DIR=$(dirname "$0")
 
 # Install docker
 if [ -z "$(which docker)" ]; then
-    ./"$SCRIPTDIR"/install-docker.sh
+    ./"$SCRIPTS_DIR"/install-docker.sh
 fi
 
 # Install microk8s
 if [ -z "$(which microk8s)" ]; then
-    ./"$SCRIPTDIR"/install-microk8s.sh
+    ./"$SCRIPTS_DIR"/install-microk8s.sh
 fi
 
 # Install crontab
-./"$SCRIPTDIR"/install-crontabs.sh
+./"$SCRIPTS_DIR"/install-crontabs.sh
 
 # Setup .git/hooks
-cp -r "$SCRIPTDIR"/hooks "$SCRIPTDIR"/.git
-chmod -R 744 "$SCRIPTDIR"/.git/hooks
+cp -r "$SCRIPTS_DIR"/../hooks "$SCRIPTS_DIR"/../.git
+chmod -R 744 "$SCRIPTS_DIR"/../.git/hooks
