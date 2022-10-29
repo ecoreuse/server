@@ -2,5 +2,4 @@ MAILTO=ecoreuse9@gmail.com
 
 # Server management
 @daily sudo reboot
-0 1 * * * sudo apt-get update && sudo apt-get upgrade -y
-0 2 * * * sudo apt-get autoremove -y
+0 1 * * * sudo apt-upgrade.sh
