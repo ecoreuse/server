@@ -1,5 +1,5 @@
 MAILTO=ecoreuse9@gmail.com
 
 # Server management
-@daily sudo reboot
-0 1 * * * sudo apt-upgrade.sh
+0 1 * * * sudo reboot
+30 0 * * * sudo apt-upgrade.sh
