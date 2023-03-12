@@ -1,3 +1,4 @@
+---
 name: pre-commit
 
 on:
@@ -14,11 +15,13 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
-    - uses: pre-commit/action@v3.0.0
-    # pre-commit/action is deprecated (https://github.com/marketplace/actions/pre-commit).
-    # But we have to use it because pre-commit.ci doesn't seem to support Docker hooks currently on 30/09/2022.
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+      - uses: pre-commit/action@v3.0.0
+    # pre-commit/action is deprecated.
+    # (https://github.com/marketplace/actions/pre-commit)
+    # But we have to use it because pre-commit.ci doesn't seem to
+    # support Docker hooks currently on 30/09/2022.
     # We are using the following Docker hooks
     # - shellcheck (https://github.com/koalaman/shellcheck-precommit)
     # - shell-fmt (https://github.com/pecigonzalo/pre-commit-shfmt)
