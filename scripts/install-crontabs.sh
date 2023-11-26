@@ -12,5 +12,6 @@ crontab "$CRONTABS_DIR"/user
 
 # apt upgrade
 sudo cp "$SCRIPTS_DIR"/apt-upgrade.sh /usr/local/bin/
-sudo chmod 544 /usr/local/bin/apt-upgrade.sh
-sudo chown root:root /usr/local/bin/apt-upgrade.sh
+
+# backup selenium user data
+sudo cp "$SCRIPTS_DIR"/backup-selenium-user-data.sh /usr/local/bin/
