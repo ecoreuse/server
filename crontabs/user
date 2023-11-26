@@ -1,1 +1,4 @@
 MAILTO=ecoreuse9@gmail.com
+
+0 6 * * * sudo backup-selenium-user-data.sh
+# 0 7 * * * rclone sync $HOME/backup GoogleDrive-ecoreuse9:backup
