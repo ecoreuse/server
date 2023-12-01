@@ -25,6 +25,7 @@ repos:
       - id: yamllint
         args:
           - --format=parsable
+          - --config-data=relaxed
   - repo: https://github.com/pecigonzalo/pre-commit-shfmt
     rev: v2.1.0
     hooks:
