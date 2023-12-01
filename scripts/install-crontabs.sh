@@ -8,7 +8,6 @@ SCRIPTS_DIR=$(dirname "$0")
 CRONTABS_DIR=$(realpath "$SCRIPTS_DIR"/../crontabs)
 
 sudo crontab "$CRONTABS_DIR"/root
-crontab "$CRONTABS_DIR"/user
 
 # apt upgrade
 sudo cp "$SCRIPTS_DIR"/apt-upgrade.sh /usr/local/bin/
