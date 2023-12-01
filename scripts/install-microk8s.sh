@@ -4,9 +4,6 @@ set -euC
 set -o pipefail
 set -x
 
-SCRIPTS_DIR=$(dirname "$0")
-SERVICES_DIR=$(realpath "$SCRIPTS_DIR"/../services)
-
 sudo snap install microk8s --classic
 sudo usermod -aG microk8s "$USER"
 sudo chown -fR "$USER" ~/.kube
@@ -17,10 +14,13 @@ if [ ! -f ~/.kube/config ]; then
 fi
 
 # Install addons
-microk8s enable dns dashboard
-microk8s enable ingress hostpath-storage observability
-
-SERVICE_FILENAME="kubernetes-dashboard.service"
-if [ ! -f /etc/systemd/system/"$SERVICE_FILENAME" ]; then
-    sudo ln -s "$SERVICES_DIR/$SERVICE_FILENAME" /etc/systemd/system/"$SERVICE_FILENAME"
-fi
+addons=(
+    "dns"
+    "dashboard"
+    "hostpath-strorage"
+    "ingress"
+)
+for addon in "${addons[@]}"; do
+    microk8s enable "$addon"
+    sleep 10
+done
